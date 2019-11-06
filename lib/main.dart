@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'widgets/audioplayer.dart';
 
 void main() => runApp(MyApp());
 
@@ -21,6 +22,7 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue,
       ),
       home: MyHomePage(title: 'Flutter Demo Home Page'),
+      //home: AudioPlayer(title: "song")
     );
   }
 }
@@ -91,20 +93,10 @@ class _MyHomePageState extends State<MyHomePage> {
           // horizontal).
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            Text(
-              'You have pushed the button this many times:',
-            ),
-            Text(
-              '$_counter',
-              style: Theme.of(context).textTheme.display1,
-            ),
+            SoundPlayer(title: "laugh", url:"https://freesound.org/data/previews/381/381374_6456158-lq.mp3"),
+                       
           ],
         ),
-      ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: _incrementCounter,
-        tooltip: 'Increment',
-        child: Icon(Icons.add),
       ), // This trailing comma makes auto-formatting nicer for build methods.
     );
   }
