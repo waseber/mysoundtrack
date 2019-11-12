@@ -47,7 +47,7 @@ class SoundPlayerState extends State<SoundPlayer>{
               tooltip: 'Play',
               child: Icon(Icons.play_arrow),
             ),
-            Text(widget.title),
+            Text(widget.title, style: TextStyle(color: Colors.white,)),
           ],
         ) 
       ),      
