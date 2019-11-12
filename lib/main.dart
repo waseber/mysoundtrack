@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'widgets/audioplayer.dart';
+import 'widgets/soundplayer.dart';
 
 void main() => runApp(MyApp());
 
@@ -93,7 +93,7 @@ class _MyHomePageState extends State<MyHomePage> {
           // horizontal).
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            SoundPlayer(title: "laugh", url:"https://freesound.org/data/previews/381/381374_6456158-lq.mp3"),
+            SoundPlayer(title: "applause", url:"applause.mp3"),
                        
           ],
         ),
