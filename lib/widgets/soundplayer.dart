@@ -18,10 +18,23 @@ class SoundPlayer extends StatefulWidget{
 }
 class SoundPlayerState extends State<SoundPlayer>{
   
-  AudioCache audioCache = AudioCache();
-  AudioPlayer advancedPlayer = AudioPlayer();
+  AudioPlayer advancedPlayer;
+  AudioCache audioCache;
+  
+  @override
+  void initState(){
+    super.initState();
+    initPlayer();
+  }
+
+  void initPlayer(){
+    advancedPlayer = new AudioPlayer();
+    audioCache = new AudioCache(fixedPlayer: advancedPlayer);
+
+  }
   String localFilePath;
 
+  bool _playing = false;
   /*Future _loadFile() async {
     final bytes = await readBytes(widget.url);
     final dir = await getApplicationDocumentsDirectory();
@@ -34,18 +47,46 @@ class SoundPlayerState extends State<SoundPlayer>{
       });
     }
   }*/
-
+  
+  
+  void onComplete(){
+    print("hi");
+    setState(() {
+      _playing = !_playing;
+    });
+  }
 
   @override
   Widget build(BuildContext context){
     return Container(
+      decoration: BoxDecoration(
+        color: Colors.blueGrey,
+        borderRadius: BorderRadius.circular(50.0)
+      ),
       child: Center(
         child: Column(
           children: <Widget>[
-            FloatingActionButton(
-              onPressed: () => audioCache.play(widget.url),
-              tooltip: 'Play',
-              child: Icon(Icons.play_arrow),
+            IconButton(
+              onPressed: () => {
+                setState(() {
+                  _playing = !_playing;
+                }),
+                if(_playing){
+                  audioCache.play(widget.url),
+                  advancedPlayer.onPlayerCompletion.listen((event) {
+                  onComplete();                    
+                  })
+                  
+                }else{
+                  advancedPlayer.stop()
+                },
+                
+              },                           
+              tooltip: "Play",
+              icon: Icon(
+                _playing ? Icons.stop : Icons.play_arrow,
+                color: Colors.white,
+                ),
             ),
             Text(widget.title, style: TextStyle(color: Colors.white,)),
           ],
