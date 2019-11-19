@@ -18,9 +18,20 @@ class SoundPlayer extends StatefulWidget{
 }
 class SoundPlayerState extends State<SoundPlayer>{
   
+  AudioPlayer advancedPlayer;
+  AudioCache audioCache;
   
-  AudioPlayer advancedPlayer = AudioPlayer();
-  AudioCache audioCache = AudioCache();
+  @override
+  void initState(){
+    super.initState();
+    initPlayer();
+  }
+
+  void initPlayer(){
+    advancedPlayer = new AudioPlayer();
+    audioCache = new AudioCache(fixedPlayer: advancedPlayer);
+
+  }
   String localFilePath;
 
   bool _playing = false;
@@ -40,6 +51,9 @@ class SoundPlayerState extends State<SoundPlayer>{
   
   void onComplete(){
     print("hi");
+    setState(() {
+      _playing = !_playing;
+    });
   }
 
   @override
@@ -53,21 +67,18 @@ class SoundPlayerState extends State<SoundPlayer>{
         child: Column(
           children: <Widget>[
             IconButton(
-              onPressed: () => { 
-                 setState((){
+              onPressed: () => {
+                setState(() {
                   _playing = !_playing;
                 }),
                 if(_playing){
                   audioCache.play(widget.url),
                   advancedPlayer.onPlayerCompletion.listen((event) {
-                  onComplete();
-                    setState(() {
-                      _playing = !_playing;
-                    });
+                  onComplete();                    
                   })
                   
                 }else{
-                  advancedPlayer.stop
+                  advancedPlayer.stop()
                 },
                 
               },                           
