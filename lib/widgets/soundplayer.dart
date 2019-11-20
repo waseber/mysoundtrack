@@ -58,15 +58,16 @@ class SoundPlayerState extends State<SoundPlayer>{
 
   @override
   Widget build(BuildContext context){
-    return Container(
-      decoration: BoxDecoration(
-        color: Colors.blueGrey,
-        borderRadius: BorderRadius.circular(50.0)
-      ),
+    return Container(      
       child: Center(
         child: Column(
           children: <Widget>[
-            IconButton(
+           Container(
+             decoration: BoxDecoration(
+              color: Colors.blueGrey,
+              borderRadius: BorderRadius.circular(50.0)
+            ),
+             child:  IconButton(
               onPressed: () => {
                 setState(() {
                   _playing = !_playing;
@@ -88,6 +89,7 @@ class SoundPlayerState extends State<SoundPlayer>{
                 color: Colors.white,
                 ),
             ),
+           ),
             Text(widget.title, style: TextStyle(color: Colors.white,)),
           ],
         ) 
