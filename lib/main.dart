@@ -72,15 +72,15 @@ class _MyHomePageState extends State<MyHomePage> {
                 padding: const EdgeInsets.all(4.0),
                 children: <Widget>[
                   SoundPlayer(title: "Applause", url:"sounds/applause.mp3"),
-                  SoundPlayer(title: "Lose", url:"sounds/lose.mp3"),
+                  SoundPlayer(title: "Rimshot", url:"sounds/rimshot.mp3"),
                   SoundPlayer(title: "Laugh", url:"sounds/laugh.mp3"),
+                  SoundPlayer(title: "Crickets", url:"sounds/crickets.mp3"),
+                  SoundPlayer(title: "Lose", url:"sounds/lose.mp3"),
                   SoundPlayer(title: "Whistle", url:"sounds/whistle.mp3"),
                   SoundPlayer(title: "Gong", url:"sounds/gong.mp3"),
                   SoundPlayer(title: "Burp", url:"sounds/burp.mp3"),
                   SoundPlayer(title: "Tympany", url:"sounds/tympany.mp3"),
-                  SoundPlayer(title: "Crickets", url:"sounds/crickets.mp3"),
                   SoundPlayer(title: "Explosion", url:"sounds/explosion.mp3"),
-                  SoundPlayer(title: "Rimshot", url:"sounds/rimshot.mp3"),
                 ],
             )
           )
