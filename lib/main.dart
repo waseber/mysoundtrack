@@ -79,6 +79,8 @@ class _MyHomePageState extends State<MyHomePage> {
                   SoundPlayer(title: "Burp", url:"sounds/burp.mp3"),
                   SoundPlayer(title: "Tympany", url:"sounds/tympany.mp3"),
                   SoundPlayer(title: "Crickets", url:"sounds/crickets.mp3"),
+                  SoundPlayer(title: "Explosion", url:"sounds/explosion.mp3"),
+                  SoundPlayer(title: "Rimshot", url:"sounds/rimshot.mp3"),
                 ],
             )
           )
